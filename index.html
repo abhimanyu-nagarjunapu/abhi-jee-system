@@ -1,10 +1,11 @@
-index.html<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050b12">
 <meta name="description" content="ABHI — Solo JEE Leveling System">
+<link rel="manifest" href="./manifest.webmanifest">
 <title>ABHI // JEE SYSTEM</title>
 <style>
 :root{--bg:#03070c;--panel:#07111b;--panel2:#0a1723;--cyan:#36d9ff;--cyan2:#8beeff;--text:#dff9ff;--muted:#7095a5;--danger:#ff527a;--gold:#ffd76a;--line:rgba(54,217,255,.22);--glow:0 0 18px rgba(54,217,255,.22)}
@@ -29,10 +30,10 @@ input,select{background:#040a10;color:var(--text);border:1px solid var(--line);p
 
 .noticeBlue{border-left:3px solid #58a6ff!important}.noticeRed{border-left:3px solid #ff5267!important}
 .rankGlow{letter-spacing:3px;text-shadow:0 0 14px rgba(54,217,255,.45)}
-""</style>
+</style>
 </head>
 <body><div class="scan"></div>
-<header><div class="brand"><div><div class="eyebrow">SYSTEM // JEE MAIN</div><h1>ABHI — SOLO LEVELING</h1></div><div class="online">● ONLINE</div></div></header>
+<header><div class="brand"><div><div class="eyebrow">SYSTEM // JEE MAIN</div><h1>ABHI — SOLO LEVELING</h1></div><div class="online">ONLINE</div></div></header>
 <main>
 <section id="home" class="screen active">
 <div class="hero"><div class="system-title">SYSTEM INITIALIZED</div><div class="player">PLAYER IDENTIFIED: ABHI</div><div class="rank" id="rankHero">E-RANK HUNTER</div><div class="questline">PRIMARY QUEST<strong>MASTER JEE MAIN</strong></div></div>
@@ -178,4 +179,7 @@ function exportData(){let blob=new Blob([JSON.stringify(d,null,2)],{type:'applic
 function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{d=JSON.parse(r.result);save();render();toast('BACKUP RESTORED')}catch{toast('BACKUP INVALID')}};r.readAsText(f)}
 function saveSettings(){d.settings={morning:document.getElementById('notifyMorning').value,study:document.getElementById('notifyStudy').value,evening:document.getElementById('notifyEvening').value,silentStart:document.getElementById('silentStart').value,silentEnd:document.getElementById('silentEnd').value};save();if('Notification'in window&&Notification.permission==='default')Notification.requestPermission();scheduleNotificationChecks();toast('SYSTEM SETTINGS SAVED')}
 render();
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js', {scope:'./'}).catch(()=>{});
+}
 </script></body></html>
