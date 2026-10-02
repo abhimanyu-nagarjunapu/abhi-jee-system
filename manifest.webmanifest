@@ -1,0 +1,25 @@
+{
+  "name": "ABHI — Solo JEE Leveling System",
+  "short_name": "ABHI JEE SYSTEM",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#03070c",
+  "theme_color": "#050b12",
+  "description": "Solo Leveling inspired JEE Main preparation system for ABHI.",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
