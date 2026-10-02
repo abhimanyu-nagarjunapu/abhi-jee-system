@@ -120,3 +120,4 @@ const SystemAI = {
         };
     }
 };
+console.log("⚔️ SYSTEM AI ONLINE");
