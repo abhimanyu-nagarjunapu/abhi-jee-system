@@ -157,6 +157,10 @@ function testBossNotification(){
   fireSystemNotification('boss','SYSTEM // BOSS BATTLE DETECTED','RED CHANNEL: weekly Boss Quest is ready. Did you complete the battle? Open Boss Chamber to record the result.');
   toast('RED BOSS CHANNEL TEST SENT');
 }
+function ensureBossCycle(){
+  if(!Array.isArray(d.bosses)) d.bosses=[];
+}
+
 function render(){
 ensureQuests();
 ensureBossCycle();document.getElementById('level').textContent=d.level;document.getElementById('xp').textContent=d.xp;document.getElementById('nextxp').textContent=xpNext();document.getElementById('rankHero').textContent=d.rank==='E'||d.rank==='D'||d.rank==='C'||d.rank==='B'||d.rank==='A'||d.rank==='S'?d.rank+'-RANK HUNTER':d.rank;document.getElementById('streak').textContent=d.streak;document.getElementById('xpbar').style.width=Math.min(100,d.xp/xpNext()*100)+'%';
