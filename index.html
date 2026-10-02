@@ -186,4 +186,21 @@ render();
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service-worker.js', {scope:'./'}).catch(()=>{});
 }
-</script><script src="systemAI.js"></script></body></html>
+</script><script src="systemAI.js"></script></body><button onclick="testSystemAI()">
+⚔️ ASK THE SYSTEM
+</button>
+
+<script>
+function testSystemAI() {
+    const quest = SystemAI.generateQuest();
+
+    alert(
+        "⚔️ SYSTEM ANALYSIS COMPLETE\n\n" +
+        "NEW QUEST\n" +
+        "Subject: " + quest.subject + "\n" +
+        "Difficulty: " + quest.difficulty + "\n" +
+        "Questions: " + quest.questions + "\n" +
+        "Reward: +" + quest.xp + " XP"
+    );
+}
+</script></html>
